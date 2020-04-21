@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kingtopproduct", "kingtopproduct\kingtopproduct.csproj", "{D22E3399-25B2-4D04-BD5D-2489A5D71101}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{CA0FD91E-B1E2-4715-B57E-C3585858F94D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseHandler", "DatabaseHandler\DatabaseHandler.csproj", "{B6214FD3-77A5-4126-8EAD-2E6CB11DFEEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{EC4D7D9F-F52C-43A0-B8F3-FFC40077190C}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://kingtop.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BusinessLogic\\BusinessLogic.csproj
+		SccProjectName1 = BusinessLogic
+		SccLocalPath1 = BusinessLogic
+		SccProjectUniqueName2 = DatabaseHandler\\DatabaseHandler.csproj
+		SccProjectName2 = DatabaseHandler
+		SccLocalPath2 = DatabaseHandler
+		SccProjectUniqueName3 = kingtopproduct\\kingtopproduct.csproj
+		SccProjectName3 = kingtopproduct
+		SccLocalPath3 = kingtopproduct
+		SccProjectUniqueName4 = Model\\Model.csproj
+		SccProjectName4 = Model
+		SccLocalPath4 = Model
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D22E3399-25B2-4D04-BD5D-2489A5D71101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D22E3399-25B2-4D04-BD5D-2489A5D71101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D22E3399-25B2-4D04-BD5D-2489A5D71101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D22E3399-25B2-4D04-BD5D-2489A5D71101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA0FD91E-B1E2-4715-B57E-C3585858F94D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA0FD91E-B1E2-4715-B57E-C3585858F94D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA0FD91E-B1E2-4715-B57E-C3585858F94D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA0FD91E-B1E2-4715-B57E-C3585858F94D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6214FD3-77A5-4126-8EAD-2E6CB11DFEEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6214FD3-77A5-4126-8EAD-2E6CB11DFEEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6214FD3-77A5-4126-8EAD-2E6CB11DFEEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6214FD3-77A5-4126-8EAD-2E6CB11DFEEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC4D7D9F-F52C-43A0-B8F3-FFC40077190C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC4D7D9F-F52C-43A0-B8F3-FFC40077190C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC4D7D9F-F52C-43A0-B8F3-FFC40077190C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC4D7D9F-F52C-43A0-B8F3-FFC40077190C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

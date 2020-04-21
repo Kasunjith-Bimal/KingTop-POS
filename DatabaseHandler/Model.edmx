@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="kingtopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="NICNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="TelNo" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="debt">
+          <Key>
+            <PropertyRef Name="debtno" />
+          </Key>
+          <Property Name="debtno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerid" Type="int" Nullable="false" />
+          <Property Name="customername" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="debtamount" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="invoiceheader">
+          <Key>
+            <PropertyRef Name="invoiceno" />
+          </Key>
+          <Property Name="invoiceno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="invoicedate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="totaldiscount" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="totalprice" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="invoiceline">
+          <Key>
+            <PropertyRef Name="invoiceno" />
+            <PropertyRef Name="productid" />
+            <PropertyRef Name="sellingprice" />
+          </Key>
+          <Property Name="invoiceno" Type="int" Nullable="false" />
+          <Property Name="productid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="quantity" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="sellingprice" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="discountprice" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="totalprice" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastprice" Type="nchar" MaxLength="10" />
+          <Property Name="discountsp" Type="decimal" Precision="16" Scale="2" />
+        </EntityType>
+        <EntityType Name="LoginDetails">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Full_Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Nic_No" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telephone_No" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="User_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentDetails">
+          <Key>
+            <PropertyRef Name="Payment_Id" />
+          </Key>
+          <Property Name="Payment_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Drawer_Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="WithDrawer_Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Date" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product1">
+          <Key>
+            <PropertyRef Name="productid" />
+            <PropertyRef Name="barcode" />
+            <PropertyRef Name="sellingprice" />
+          </Key>
+          <Property Name="productid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="barcode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="quantity" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="expiredate" Type="varchar" MaxLength="50" />
+          <Property Name="sellingprice" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="purchaseprice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="discountprice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="discountquantity" Type="int" />
+        </EntityType>
+        <EntityType Name="wait">
+          <Key>
+            <PropertyRef Name="waitno" />
+          </Key>
+          <Property Name="waitno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dates" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="waitproduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="waitno" Type="int" Nullable="false" />
+          <Property Name="barcode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="productid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="quantity" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="sellingprice" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="discountprice" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="total" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="lastprice" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="discountsp" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="kingtopModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="debt" EntityType="Self.debt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="invoiceheader" EntityType="Self.invoiceheader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="invoiceline" EntityType="Self.invoiceline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginDetails" EntityType="Self.LoginDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentDetails" EntityType="Self.PaymentDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product1" EntityType="Self.product1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wait" EntityType="Self.wait" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="waitproduct" EntityType="Self.waitproduct" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="kingtopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NICNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="debt">
+          <Key>
+            <PropertyRef Name="debtno" />
+          </Key>
+          <Property Name="debtno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="Int32" Nullable="false" />
+          <Property Name="customername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="debtamount" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="invoiceheader">
+          <Key>
+            <PropertyRef Name="invoiceno" />
+          </Key>
+          <Property Name="invoiceno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="invoicedate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="totaldiscount" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="totalprice" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="invoiceline">
+          <Key>
+            <PropertyRef Name="invoiceno" />
+            <PropertyRef Name="productid" />
+            <PropertyRef Name="sellingprice" />
+          </Key>
+          <Property Name="invoiceno" Type="Int32" Nullable="false" />
+          <Property Name="productid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="quantity" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="sellingprice" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="discountprice" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="totalprice" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastprice" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="discountsp" Type="Decimal" Precision="16" Scale="2" />
+        </EntityType>
+        <EntityType Name="LoginDetail">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Full_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nic_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telephone_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="User_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentDetail">
+          <Key>
+            <PropertyRef Name="Payment_Id" />
+          </Key>
+          <Property Name="Payment_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Drawer_Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="WithDrawer_Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product1">
+          <Key>
+            <PropertyRef Name="productid" />
+            <PropertyRef Name="barcode" />
+            <PropertyRef Name="sellingprice" />
+          </Key>
+          <Property Name="productid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="quantity" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="expiredate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sellingprice" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="purchaseprice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="discountprice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="discountquantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="wait">
+          <Key>
+            <PropertyRef Name="waitno" />
+          </Key>
+          <Property Name="waitno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dates" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="waitproduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="waitno" Type="Int32" Nullable="false" />
+          <Property Name="barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="productid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="quantity" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="sellingprice" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="discountprice" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="total" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="lastprice" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="discountsp" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="kingtopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="debts" EntityType="Self.debt" />
+          <EntitySet Name="invoiceheaders" EntityType="Self.invoiceheader" />
+          <EntitySet Name="invoicelines" EntityType="Self.invoiceline" />
+          <EntitySet Name="LoginDetails" EntityType="Self.LoginDetail" />
+          <EntitySet Name="PaymentDetails" EntityType="Self.PaymentDetail" />
+          <EntitySet Name="product1" EntityType="Self.product1" />
+          <EntitySet Name="waits" EntityType="Self.wait" />
+          <EntitySet Name="waitproducts" EntityType="Self.waitproduct" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="kingtopModelStoreContainer" CdmEntityContainer="kingtopEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="kingtopModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="NICNo" ColumnName="NICNo" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="debts">
+            <EntityTypeMapping TypeName="kingtopModel.debt">
+              <MappingFragment StoreEntitySet="debt">
+                <ScalarProperty Name="debtno" ColumnName="debtno" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="customername" ColumnName="customername" />
+                <ScalarProperty Name="debtamount" ColumnName="debtamount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="invoiceheaders">
+            <EntityTypeMapping TypeName="kingtopModel.invoiceheader">
+              <MappingFragment StoreEntitySet="invoiceheader">
+                <ScalarProperty Name="invoiceno" ColumnName="invoiceno" />
+                <ScalarProperty Name="invoicedate" ColumnName="invoicedate" />
+                <ScalarProperty Name="totaldiscount" ColumnName="totaldiscount" />
+                <ScalarProperty Name="totalprice" ColumnName="totalprice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="invoicelines">
+            <EntityTypeMapping TypeName="kingtopModel.invoiceline">
+              <MappingFragment StoreEntitySet="invoiceline">
+                <ScalarProperty Name="invoiceno" ColumnName="invoiceno" />
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="sellingprice" ColumnName="sellingprice" />
+                <ScalarProperty Name="discountprice" ColumnName="discountprice" />
+                <ScalarProperty Name="totalprice" ColumnName="totalprice" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="lastprice" ColumnName="lastprice" />
+                <ScalarProperty Name="discountsp" ColumnName="discountsp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginDetails">
+            <EntityTypeMapping TypeName="kingtopModel.LoginDetail">
+              <MappingFragment StoreEntitySet="LoginDetails">
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Nic_No" ColumnName="Nic_No" />
+                <ScalarProperty Name="Telephone_No" ColumnName="Telephone_No" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentDetails">
+            <EntityTypeMapping TypeName="kingtopModel.PaymentDetail">
+              <MappingFragment StoreEntitySet="PaymentDetails">
+                <ScalarProperty Name="Payment_Id" ColumnName="Payment_Id" />
+                <ScalarProperty Name="Drawer_Amount" ColumnName="Drawer_Amount" />
+                <ScalarProperty Name="WithDrawer_Amount" ColumnName="WithDrawer_Amount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product1">
+            <EntityTypeMapping TypeName="kingtopModel.product1">
+              <MappingFragment StoreEntitySet="product1">
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="expiredate" ColumnName="expiredate" />
+                <ScalarProperty Name="sellingprice" ColumnName="sellingprice" />
+                <ScalarProperty Name="purchaseprice" ColumnName="purchaseprice" />
+                <ScalarProperty Name="discountprice" ColumnName="discountprice" />
+                <ScalarProperty Name="discountquantity" ColumnName="discountquantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="waits">
+            <EntityTypeMapping TypeName="kingtopModel.wait">
+              <MappingFragment StoreEntitySet="wait">
+                <ScalarProperty Name="waitno" ColumnName="waitno" />
+                <ScalarProperty Name="dates" ColumnName="dates" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="waitproducts">
+            <EntityTypeMapping TypeName="kingtopModel.waitproduct">
+              <MappingFragment StoreEntitySet="waitproduct">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="waitno" ColumnName="waitno" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="sellingprice" ColumnName="sellingprice" />
+                <ScalarProperty Name="discountprice" ColumnName="discountprice" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="lastprice" ColumnName="lastprice" />
+                <ScalarProperty Name="discountsp" ColumnName="discountsp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
